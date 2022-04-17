@@ -23,6 +23,10 @@ app.get('/', async (req: Request, res: Response) => {
   //     },
   //   },
   // })
+  const post = await prisma.post.update({
+    where: {id: 1},
+    data: {published: true}
+  })
   const allUsers = await prisma.user.findMany({
     include:{
       posts: true,
