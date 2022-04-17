@@ -32,6 +32,10 @@ app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     //     },
     //   },
     // })
+    const post = yield prisma.post.update({
+        where: { id: 1 },
+        data: { published: true }
+    });
     const allUsers = yield prisma.user.findMany({
         include: {
             posts: true,
